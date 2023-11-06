@@ -24,9 +24,9 @@ This should be fairly straightforward. All dependencies should be installed auto
 
 You can download all the files or ``git clone`` this repo into your home directory, and it should be ready to run!
 
-We'll be using Jupyter notebooks. If you'd like to set up one in Keeling but haven't before, we suggest using (Max Grover's tutorial)[https://github.com/mgrover1/keeling-crash-course]
+We'll be using Jupyter notebooks. If you'd like to set up one in Keeling but haven't before, we suggest using [Max Grover's tutorial](https://github.com/mgrover1/keeling-crash-course)
 
 # Resources
-- (Climlab)[https://climlab.readthedocs.io/en/latest/]
-- (Conda cheat sheet)[https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf]
+- [Climlab](https://climlab.readthedocs.io/en/latest/)
+- [Conda cheat sheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf)
 - 
