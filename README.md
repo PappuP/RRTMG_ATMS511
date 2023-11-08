@@ -7,7 +7,7 @@ Python wrapper for RRTMG, which we'll be using.
 # Installing climlab
 
 We recommend creating a new environment or using an existing non-base environment for this. To create a new environment:
-`` conda create --name [new env name] ``
+`` conda create --name rrtmg ``
 
 To copy an environment you already have to make a new one: 
 ``  conda create --clone [existing environment] -n [new environment] ``
@@ -16,7 +16,9 @@ To activate your environment:
 `` conda activate [env name]``
 
 Installing climlab:
-``conda install -c conda-forge climlab``
+``conda install pip 
+pip install ipykernel #to create new kernels to run the notebook in 
+conda install -c conda-forge climlab matplotlib ``
 
 This should be fairly straightforward. All dependencies should be installed automatically if they're not already present in your directory.
 
