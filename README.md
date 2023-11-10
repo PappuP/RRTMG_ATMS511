@@ -29,7 +29,7 @@ conda activate rrtmg
 conda install pip 
 pip install ipykernel # create a new kernel to run the notebook in 
 conda install -c conda-forge climlab matplotlib numba # Download climlab
-conda install climlab_rrtmg # Download the RRTMG specific package of climlab
+conda install climlab-rrtmg # Download the RRTMG specific package of climlab
 ```
 
 
