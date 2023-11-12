@@ -55,7 +55,7 @@ conda install nb_conda_kernels
 ```
 Open Jupyter Notebooks from your base environment and follow the steps below
 In the top pannel of the notebook find ``Kernal>>change kernal>>select your new env kernal``
-![Chnage the kernal in notebook](Supplementary/kernal.png)
+![Chnage the kernal in notebook](../Supplementary/kernal.png)
 
 # Resources
 - [Climlab](https://climlab.readthedocs.io/en/latest/)
