@@ -471,11 +471,11 @@ def plotting_clr(radmodel_LW, radmodel_SW,location):
     ax1 = plt.subplot2grid((1,3), (0,0))
     ax2 = plt.subplot2grid((1,3), (0,1))
 
-    ax1.plot(radmodel_LW.LW_flux_net, radmodel_LW.lev_bounds, label='LW', c="C0")
-    ax1.plot(radmodel_SW.SW_flux_net, radmodel_SW.lev_bounds, label='SW',c="C1")
+    ax1.plot(radmodel_LW.LW_flux_net, radmodel_LW.lev_bounds, label='LW')
+    ax1.plot(radmodel_SW.SW_flux_net, radmodel_SW.lev_bounds, label='SW')
     ax1.invert_yaxis()
-    net_flux=radmodel_SW.SW_flux_net+radmodel_LW.LW_flux_net
-    ax1.plot(net_flux, radmodel_LW.lev_bounds, label='Net',c='C2')    
+    net_flux=radmodel_SW.SW_flux_net-radmodel_LW.LW_flux_net
+    ax1.plot(net_flux, radmodel_LW.lev_bounds, label='Net')
     #maxval = np.max((radmodel_LW.LW_flux_net[3:], radmodel_SW.SW_flux_net[3:]))
     #minval = np.min((radmodel_LW.LW_flux_net[3:], radmodel_SW.SW_flux_net[3:]))
     #ax1.set_xlim(minval-5, maxval+5)
@@ -485,11 +485,11 @@ def plotting_clr(radmodel_LW, radmodel_SW,location):
     ax1.grid()
     ax1.set_title('Vertical Profile of Net Flux at '+location)
 
-    ax2.plot(radmodel_LW.heating_rate['Tatm'], radmodel_LW.lev, label='LW', c="C0")
-    ax2.plot(radmodel_SW.heating_rate['Tatm'], radmodel_SW.lev, label='SW', c="C1")
+    ax2.plot(radmodel_LW.heating_rate['Tatm'], radmodel_LW.lev, label='LW')
+    ax2.plot(radmodel_SW.heating_rate['Tatm'], radmodel_SW.lev, label='SW')
     ax2.invert_yaxis()
-    net_heating=radmodel_SW.heating_rate['Tatm']+radmodel_LW.heating_rate['Tatm']
-    ax2.plot(net_heating, radmodel_SW.lev, label='Net',c='C2')
+    net_heating=radmodel_SW.heating_rate['Tatm']-radmodel_LW.heating_rate['Tatm']
+    ax2.plot(net_heating, radmodel_SW.lev, label='Net')
     
     maxval = np.max((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:],net_heating[3:]))
     minval = np.min((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:],net_heating[3:]))
@@ -508,10 +508,10 @@ def plotting_cld(radmodel_lw, radmodel_sw):
     swnet,lwnet = read_netflux(radmodel_sw,radmodel_lw)
     #plt.plot(swnet,p_lev,label='net ↓F_sw')
     #plt.plot(lwnet,p_lev,label='net ↑F_lw')
-    ax1.plot(radmodel_sw.heating_rate['Tatm'], radmodel_sw.lev,label='SW', c="C1") 
-    ax1.plot(radmodel_lw.heating_rate['Tatm'], radmodel_lw.lev,label='LW', c="C0") 
+    ax1.plot(radmodel_sw.heating_rate['Tatm'], radmodel_sw.lev,label='SW') 
+    ax1.plot(radmodel_lw.heating_rate['Tatm'], radmodel_lw.lev,label='LW') 
     net_heating=radmodel_sw.heating_rate['Tatm']-radmodel_lw.heating_rate['Tatm']
-    ax1.plot(net_heating, radmodel_sw.lev, label='Net',c='C2')
+    ax1.plot(net_heating, radmodel_sw.lev, label='Net')
     ax1.invert_yaxis()
     ax1.grid()
     ax1.legend()
@@ -526,10 +526,10 @@ def plotting_cld(radmodel_lw, radmodel_sw):
     #ax2.plot(lwd,p_lev,label='↓F_lw',color='C1')
     #ax2.plot(swu,p_lev,label='↑F_sw',color='C0',linestyle='dashed')
     #ax2.plot(lwu,p_lev,label='↑F_lw',color='C1',linestyle='dashed')
-    ax2.plot(swnet,radmodel_sw.lev_bounds,label='Net ↓F_sw', c="C1")
-    ax2.plot(lwnet,radmodel_lw.lev_bounds,label='Net ↑F_lw', c="C0")
+    ax2.plot(swnet,radmodel_sw.lev_bounds,label='Net ↓F_sw')
+    ax2.plot(lwnet,radmodel_lw.lev_bounds,label='Net ↑F_lw')
     net_flux=swnet-lwnet
-    ax2.plot(net_flux, radmodel_sw.lev_bounds, label='Net',c='C2')
+    ax2.plot(net_flux, radmodel_sw.lev_bounds, label='Net')
     ax2.invert_yaxis()
     ax2.grid()
     ax2.legend()

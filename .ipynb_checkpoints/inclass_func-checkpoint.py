@@ -58,7 +58,7 @@ def model_setup(Q, lev):
     # Running the model
     radmodel_SW.compute_diagnostics()
     
-    return radmodel_LW, radmodel_SW
+    return radmodel_LW, radmodel_SW#, radmodel_net
 
 # =================================================================================================================================================================
 
@@ -385,8 +385,6 @@ def step_model(radmodel_sw,radmodel_lw,nmcica):#,nmcica=1: ### CHECK IN
 
 # Cloud overlap methods. 0: Clear only, 1: Random, 2,  Maximum/random 3: Maximum
 
-# Cloud overlap methods. 0: Clear only, 1: Random, 2,  Maximum/random 3: Maximum
-
 # 3 models, one SW and one LW to do manual McICA, one combined model to compare with.
 overlap_types = ['0. Clear','1. Random','2. Maximum_random','3. Maximum','4. Exponential']
 
@@ -396,7 +394,7 @@ def initmodels(ICLD,mystate,Qglobal,mycloud):
                               state=mystate,   # give our model an initial condition!
                               specific_humidity=Qglobal.values,  # tell the model how much water vapor there is
                               albedo = 0.25,  # this the SURFACE shortwave albedo
-                              timestep = climlab.constants.seconds_per_day,  # set the timestep to one day (measured in seconds)
+                              #timestep = climlab.constants.,  # set the timestep to one day (measured in seconds)
                               icld = ICLD,
                               **mycloud
                              )
@@ -405,7 +403,7 @@ def initmodels(ICLD,mystate,Qglobal,mycloud):
                                 state=mystate,   # give our model an initial condition!
                                 specific_humidity=Qglobal.values,  # tell the model how much water vapor there is
                                 albedo = 0.25,  # this the SURFACE shortwave albedo
-                                timestep = climlab.constants.seconds_per_day,  # set the timestep to one day (measured in seconds)
+                                #timestep = climlab.constants.seconds_per_day,  # set the timestep to one day (measured in seconds)
                                 icld = ICLD,
                                 **mycloud
                                 )
@@ -473,9 +471,11 @@ def plotting_clr(radmodel_LW, radmodel_SW,location):
     ax1 = plt.subplot2grid((1,3), (0,0))
     ax2 = plt.subplot2grid((1,3), (0,1))
 
-    ax1.plot(radmodel_LW.LW_flux_net, radmodel_LW.lev_bounds, label='LW')
-    ax1.plot(radmodel_SW.SW_flux_net, radmodel_SW.lev_bounds, label='SW')
+    ax1.plot(radmodel_LW.LW_flux_net, radmodel_LW.lev_bounds, label='LW', c="C0")
+    ax1.plot(radmodel_SW.SW_flux_net, radmodel_SW.lev_bounds, label='SW',c="C1")
     ax1.invert_yaxis()
+    net_flux=radmodel_SW.SW_flux_net+radmodel_LW.LW_flux_net
+    ax1.plot(net_flux, radmodel_LW.lev_bounds, label='Net',c='C2')    
     #maxval = np.max((radmodel_LW.LW_flux_net[3:], radmodel_SW.SW_flux_net[3:]))
     #minval = np.min((radmodel_LW.LW_flux_net[3:], radmodel_SW.SW_flux_net[3:]))
     #ax1.set_xlim(minval-5, maxval+5)
@@ -485,11 +485,14 @@ def plotting_clr(radmodel_LW, radmodel_SW,location):
     ax1.grid()
     ax1.set_title('Vertical Profile of Net Flux at '+location)
 
-    ax2.plot(radmodel_LW.heating_rate['Tatm'], radmodel_LW.lev, label='LW')
-    ax2.plot(radmodel_SW.heating_rate['Tatm'], radmodel_SW.lev, label='SW')
+    ax2.plot(radmodel_LW.heating_rate['Tatm'], radmodel_LW.lev, label='LW', c="C0")
+    ax2.plot(radmodel_SW.heating_rate['Tatm'], radmodel_SW.lev, label='SW', c="C1")
     ax2.invert_yaxis()
-    maxval = np.max((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:]))
-    minval = np.min((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:]))
+    net_heating=radmodel_SW.heating_rate['Tatm']+radmodel_LW.heating_rate['Tatm']
+    ax2.plot(net_heating, radmodel_SW.lev, label='Net',c='C2')
+    
+    maxval = np.max((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:],net_heating[3:]))
+    minval = np.min((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:],net_heating[3:]))
     ax2.set_xlim(minval-1, maxval+1)
     ax2.set_xlabel('Heating Rate [deg/day]')
     ax2.set_ylabel('Pressure [mb]')
@@ -505,10 +508,10 @@ def plotting_cld(radmodel_lw, radmodel_sw):
     swnet,lwnet = read_netflux(radmodel_sw,radmodel_lw)
     #plt.plot(swnet,p_lev,label='net ↓F_sw')
     #plt.plot(lwnet,p_lev,label='net ↑F_lw')
-    ax1.plot(radmodel_sw.heating_rate['Tatm'], radmodel_sw.lev,label='SW') 
-    ax1.plot(radmodel_lw.heating_rate['Tatm'], radmodel_lw.lev,label='LW') 
+    ax1.plot(radmodel_sw.heating_rate['Tatm'], radmodel_sw.lev,label='SW', c="C1") 
+    ax1.plot(radmodel_lw.heating_rate['Tatm'], radmodel_lw.lev,label='LW', c="C0") 
     net_heating=radmodel_sw.heating_rate['Tatm']-radmodel_lw.heating_rate['Tatm']
-    ax1.plot(net_heating, radmodel_sw.lev, label='Net')
+    ax1.plot(net_heating, radmodel_sw.lev, label='Net',c='C2')
     ax1.invert_yaxis()
     ax1.grid()
     ax1.legend()
@@ -523,10 +526,10 @@ def plotting_cld(radmodel_lw, radmodel_sw):
     #ax2.plot(lwd,p_lev,label='↓F_lw',color='C1')
     #ax2.plot(swu,p_lev,label='↑F_sw',color='C0',linestyle='dashed')
     #ax2.plot(lwu,p_lev,label='↑F_lw',color='C1',linestyle='dashed')
-    ax2.plot(swnet,radmodel_sw.lev_bounds,label='Net ↓F_sw')
-    ax2.plot(lwnet,radmodel_lw.lev_bounds,label='Net ↑F_lw')
+    ax2.plot(swnet,radmodel_sw.lev_bounds,label='Net ↓F_sw', c="C1")
+    ax2.plot(lwnet,radmodel_lw.lev_bounds,label='Net ↑F_lw', c="C0")
     net_flux=swnet-lwnet
-    ax2.plot(net_flux, radmodel_sw.lev_bounds, label='Net')
+    ax2.plot(net_flux, radmodel_sw.lev_bounds, label='Net',c='C2')
     ax2.invert_yaxis()
     ax2.grid()
     ax2.legend()
