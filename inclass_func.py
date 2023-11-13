@@ -512,12 +512,12 @@ def plotting_cld(radmodel_lw, radmodel_sw):
     ax2.plot(radmodel_lw.heating_rate['Tatm'], radmodel_lw.lev,label='LW', c="C0") 
     net_heating=radmodel_sw.heating_rate['Tatm']+radmodel_lw.heating_rate['Tatm']
     ax2.plot(net_heating, radmodel_sw.lev, label='Net',c='C2')
-    ax1.invert_yaxis()
-    ax1.grid()
-    ax1.legend()
-    ax1.set_title(overlap_types[radmodel_sw.icld])
-    ax1.set_xlabel('Heating Rate [deg/day]')
-    ax1.set_ylabel('Pressure [mb]')
+    ax2.invert_yaxis()
+    ax2.grid()
+    ax2.legend()
+    ax2.set_title(overlap_types[radmodel_sw.icld])
+    ax2.set_xlabel('Heating Rate [deg/day]')
+    ax2.set_ylabel('Pressure [mb]')
     #plt.xlim(-100,300)
 
     p_lev = radmodel_sw.lev_bounds #lev includes upward flux from the surface to the first level, and is treated as very closely to a blackbody 
@@ -530,12 +530,12 @@ def plotting_cld(radmodel_lw, radmodel_sw):
     ax1.plot(lwnet*-1,radmodel_lw.lev_bounds,label='Net ↑F_lw', c="C0")
     net_flux=swnet-lwnet
     ax1.plot(net_flux, radmodel_sw.lev_bounds, label='Net',c='C2')
-    ax2.invert_yaxis()
-    ax2.grid()
-    ax2.legend()
-    ax2.set_title(overlap_types[radmodel_sw.icld])
-    ax2.set_xlabel('Net Radiative Flux [W/m2]')
-    ax2.set_ylabel('Pressure [mb]')
+    ax1.invert_yaxis()
+    ax1.grid()
+    ax1.legend()
+    ax1.set_title(overlap_types[radmodel_sw.icld])
+    ax1.set_xlabel('Net Radiative Flux [W/m2]')
+    ax1.set_ylabel('Pressure [mb]')
     #plt.xlim(-100,500)
 
     
