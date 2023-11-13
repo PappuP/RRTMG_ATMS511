@@ -475,6 +475,8 @@ def plotting_clr(radmodel_LW, radmodel_SW,location):
 
     ax1.plot(radmodel_LW.LW_flux_net, radmodel_LW.lev_bounds, label='LW')
     ax1.plot(radmodel_SW.SW_flux_net, radmodel_SW.lev_bounds, label='SW')
+    net_flux=radmodel_SW.SW_flux_net-radmodel_LW.LW_flux_net
+    ax1.plot(net_flux, radmodel_LW.lev_bounds, label='Net')
     ax1.invert_yaxis()
     #maxval = np.max((radmodel_LW.LW_flux_net[3:], radmodel_SW.SW_flux_net[3:]))
     #minval = np.min((radmodel_LW.LW_flux_net[3:], radmodel_SW.SW_flux_net[3:]))
@@ -483,19 +485,21 @@ def plotting_clr(radmodel_LW, radmodel_SW,location):
     ax1.set_ylabel('Pressure [mb]')
     ax1.legend()
     ax1.grid()
-    ax1.set_title('Vertical Profile of Net Flux at '+location)
+    ax1.set_title('Vertical Profile of Net Flux at/for '+location)
 
     ax2.plot(radmodel_LW.heating_rate['Tatm'], radmodel_LW.lev, label='LW')
     ax2.plot(radmodel_SW.heating_rate['Tatm'], radmodel_SW.lev, label='SW')
+    net_heating=radmodel_SW.heating_rate['Tatm']-radmodel_LW.heating_rate['Tatm']
+    ax2.plot(net_heating, radmodel_SW.lev, label='Net')
     ax2.invert_yaxis()
-    maxval = np.max((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:]))
-    minval = np.min((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:]))
+    maxval = np.max((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:],net_heating[3:]))
+    minval = np.min((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:],net_heating[3:]))
     ax2.set_xlim(minval-1, maxval+1)
     ax2.set_xlabel('Heating Rate [deg/day]')
     ax2.set_ylabel('Pressure [mb]')
     ax2.legend()
     ax2.grid()
-    ax2.set_title('Vertical Profile of Heating Rates at '+location)
+    ax2.set_title('Vertical Profile of Heating Rates at/for '+location)
 
 def plotting_cld(radmodel_lw, radmodel_sw):
     fig = plt.figure(figsize=(20,4))
