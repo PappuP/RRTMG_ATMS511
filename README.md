@@ -34,7 +34,7 @@ conda install climlab-rrtmg --channel conda-forge # Download the RRTMG specific 
 
 To do this all in one line:
 ```
-conda create --name rrtmg python=3.10 climlab climlab-rrtmg numpy=1.23 numba matplotlib ipykernel --channel conda-forge
+conda create --name rrtmg python=3.10 climlab climlab-rrtmg numpy=1.23 numba matplotlib jupyter ipykernel --channel conda-forge
 ```
 
 This should be fairly straightforward. All dependencies should be installed automatically if they're not already present in your directory.
