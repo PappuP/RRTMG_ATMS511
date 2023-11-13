@@ -34,7 +34,7 @@ conda install climlab-rrtmg --channel conda-forge # Download the RRTMG specific 
 
 To do this all in one line:
 ```
-conda create --name rrtmg_new_v1 python=3.10 climlab climlab-rrtmg numpy=1.23 numba matplotlib ipykernel --channel conda-forge
+conda create --name rrtmg python=3.10 climlab climlab-rrtmg numpy=1.23 numba matplotlib ipykernel --channel conda-forge
 ```
 
 This should be fairly straightforward. All dependencies should be installed automatically if they're not already present in your directory.
@@ -47,7 +47,7 @@ git clone https://github.com/PappuP/RRTMG_ATMS511.git
 
 . If you'd like to set up one in Keeling but haven't before, we suggest using [Max Grover's tutorial](https://github.com/mgrover1/keeling-crash-course).
 
-# Chnage the kernal in notebook
+# Change the kernel in notebook
 If notebook crashes while running,  the steps below are necessary
 
 Install ``nb_conda_kernels`` in your ``base`` environment. Once this is installed any notebook running from the base environment will automatically show the kernel from any other environment which has ipykernel installed. In our new env we have ``ipykernel`` installed already so our new env will be in notebook
@@ -55,9 +55,9 @@ Install ``nb_conda_kernels`` in your ``base`` environment. Once this is installe
 conda install nb_conda_kernels
 ```
 Open Jupyter Notebooks from your base environment and follow the steps below
-In the top pannel of the notebook find ``Kernal>>change kernal>>select your new env kernal``
+In the top pannel of the notebook find ``Kernel>>change kernel>>select your new env kernel``
 
-<img src="Supplementary/kernal.png" alt="Chnage the kernal in notebook" title="Chnage the kernal in notebook">
+<img src="Supplementary/kernal.png" alt="Change the kernel in notebook" title="Change the kernel in notebook">
 
 # Resources
 - [Climlab](https://climlab.readthedocs.io/en/latest/)
