@@ -44,7 +44,7 @@ git clone https://github.com/PappuP/RRTMG_ATMS511.git
 
 . If you'd like to set up one in Keeling but haven't before, we suggest using [Max Grover's tutorial](https://github.com/mgrover1/keeling-crash-course).
 
-## Line by line instraction of creating environment and libraries 
+## Line by line instractions of creating environment and libraries 
 
 1. To create a new environment called `rrtmg`:
 ```
