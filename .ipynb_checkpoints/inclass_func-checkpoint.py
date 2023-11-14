@@ -468,7 +468,7 @@ def plot_humidity(model_Q, model_lev,obs_Q,obs_lev):
     ax1.set_ylabel('Pressure (hPa)',size=15)
     ax1.set_xlabel('Specific humidity (g/kg)',size=15)
     ax1.set_title('Simulated Humidity Profile')
-    ax1.set_ylim(top=190)
+    ax1.set_ylim(top=90)
     ax1.grid()
 
     ax2.plot(obs_Q, obs_lev, figure=fig)
@@ -476,7 +476,7 @@ def plot_humidity(model_Q, model_lev,obs_Q,obs_lev):
     ax2.set_ylabel('Pressure (hPa)',size=15)
     ax2.set_xlabel('Specific humidity (g/kg)',size=15)
     ax2.set_title('Observed Humidity Profile')
-    ax2.set_ylim(top=190)
+    ax2.set_ylim(top=90)
     ax2.grid()
     #return fig
 
@@ -495,7 +495,7 @@ def plotting_sec1(radmodel_LW, radmodel_SW,datatype,condition,location):
     #ax1.set_xlim(minval-5, maxval+5)
     ax1.set_xlabel('Net Radiative Flux [W/m2]',size=15)
     ax1.set_ylabel('Pressure [mb]',size=15)
-    ax1.set_ylim(top=190)
+    ax1.set_ylim(top=90)
     ax1.legend()
     ax1.grid()
     ax1.set_title(datatype+' '+condition+' Vertical Profile of Net Flux at '+location)
@@ -505,7 +505,7 @@ def plotting_sec1(radmodel_LW, radmodel_SW,datatype,condition,location):
     ax2.invert_yaxis()
     net_heating=radmodel_SW.heating_rate['Tatm']+radmodel_LW.heating_rate['Tatm']
     ax2.plot(net_heating, radmodel_SW.lev, label='Net',c='C2')
-    ax2.set_ylim(top=190)
+    ax2.set_ylim(top=90)
     maxval = np.max((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:],net_heating[3:]))
     minval = np.min((radmodel_LW.heating_rate['Tatm'][3:], radmodel_SW.heating_rate['Tatm'][3:],net_heating[3:]))
     ax2.set_xlim(minval-1, maxval+1)
@@ -521,7 +521,7 @@ def cf_plot(cldfrac,lev,datatype):
     plt.gca().invert_yaxis()
     plt.title('Vertical Profile of '+datatype+' Cloud Fraction')
     plt.ylabel('pressure (mb)',fontsize=15), plt.xlabel('cloud fraction (unitless)',fontsize=15),plt.grid(),
-    plt.ylim(top=190);
+    plt.ylim(top=90);
 
 def plotting_sec3(radmodel_lw, radmodel_sw):
     fig = plt.figure(figsize=(20,4))
@@ -543,7 +543,7 @@ def plotting_sec3(radmodel_lw, radmodel_sw):
     ax1.invert_yaxis()
     ax1.grid()
     ax1.legend()
-    ax1.set_ylim(top=190)
+    ax1.set_ylim(top=90)
     ax1.set_title(overlap_types[radmodel_sw.icld],size=15)
     ax1.set_xlabel('Net Radiative Flux [W/m2]',size=15)
     ax1.set_ylabel('Pressure [mb]',size=15)
@@ -560,7 +560,7 @@ def plotting_sec3(radmodel_lw, radmodel_sw):
     ax2.grid()
     ax2.legend()
     ax2.set_title(overlap_types[radmodel_sw.icld],size=15)
-    ax2.set_ylim(top=190)
+    ax2.set_ylim(top=90)
     ax2.set_xlabel('Heating Rate [deg/day]',size=15)
     ax2.set_ylabel('Pressure [mb]',size=15)
     #plt.xlim(-100,300)
