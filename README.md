@@ -29,12 +29,18 @@ There are **three** main files that needed your attention to:
 
 We recommend creating a new environment or using an existing non-base environment for this. Here is the one line code to make new environment and install all the necessary libraries 
 
-To do this all in one line:
+1. To do this all in one line:
 ```
 conda create --name rrtmg python=3.10 climlab climlab-rrtmg numpy=1.23 numba matplotlib jupyter ipykernel --channel conda-forge
 ```
 
 This should be fairly straightforward. All dependencies should be installed automatically if they're not already present in your directory. If you want to do line by line there is also instructions for this in the bottom.
+
+2. Then everyone need to activate new environment
+```
+conda activate rrtmg
+```
+3. Everyone need to open jupyter notebook in the new environment
 
 ## B. Running the code
 You can download all the files or ``git clone`` this repo into your home directory by the following line of code, and it should be ready to run!
