@@ -12,7 +12,7 @@ There are **three** main files that needed your attention to:
 - RRTMG_Pre-class.ipynb
 
 1. `README.md`: Basically this documentation that you are reading right now. **Please follow the instructions to set up the required environment and fetch the notebooks**, and feel free to reach out if you face any difficulty when running the notebooks!
-2. `RRTMG_InClass.ipynb`: The working notebook that we will be using on November 17's lecuture.
+2. `RRTMG_InClass.ipynb`: The working notebook that we will be using on November 17's lecture. Feel free to glance through the text in the notebook to get a better sense of the data and the RRTMG model that we will be working with on Friday. 
 3. `RRTMG_Pre-class.ipynb`: A quick 5-minute read - the goal is to breifly have an idea of what simulation output from global climate models would look like, and the lines of code that calls the RRTMG model using the Climlab package. 
 
 <ins>Additional References:</ins>
