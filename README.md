@@ -27,7 +27,24 @@ There are **three** main files that needed your attention to:
 # Prior to In-class Session
 ## A. Installing climlab
 
-We recommend creating a new environment or using an existing non-base environment for this. 
+We recommend creating a new environment or using an existing non-base environment for this. Here is the one line code to make new environment and install all the necessary libraries 
+
+To do this all in one line:
+```
+conda create --name rrtmg python=3.10 climlab climlab-rrtmg numpy=1.23 numba matplotlib jupyter ipykernel --channel conda-forge
+```
+
+This should be fairly straightforward. All dependencies should be installed automatically if they're not already present in your directory. If you want to do line by line there is also instructions for this in the bottom.
+
+## B. Running the code
+You can download all the files or ``git clone`` this repo into your home directory by the following line of code, and it should be ready to run!
+```
+git clone https://github.com/PappuP/RRTMG_ATMS511.git
+```
+
+. If you'd like to set up one in Keeling but haven't before, we suggest using [Max Grover's tutorial](https://github.com/mgrover1/keeling-crash-course).
+
+## Line by line instraction of creating environment and libraries 
 
 1. To create a new environment called `rrtmg`:
 ```
@@ -51,21 +68,6 @@ pip install ipykernel # create a new kernel to run the notebook in
 conda install -c conda-forge climlab matplotlib numba # Download climlab
 conda install climlab-rrtmg --channel conda-forge # Download the RRTMG specific package of climlab
 ```
-
-To do this all in one line:
-```
-conda create --name rrtmg python=3.10 climlab climlab-rrtmg numpy=1.23 numba matplotlib jupyter ipykernel --channel conda-forge
-```
-
-This should be fairly straightforward. All dependencies should be installed automatically if they're not already present in your directory.
-
-## B. Running the code
-You can download all the files or ``git clone`` this repo into your home directory by the following line of code, and it should be ready to run!
-```
-git clone https://github.com/PappuP/RRTMG_ATMS511.git
-```
-
-. If you'd like to set up one in Keeling but haven't before, we suggest using [Max Grover's tutorial](https://github.com/mgrover1/keeling-crash-course).
 
 ## C. Debugging: Change the kernel in notebook
 If notebook crashes while running,  the steps below are necessary.
