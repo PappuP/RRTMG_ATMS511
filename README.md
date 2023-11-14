@@ -4,6 +4,26 @@ Hello! This the assignment for learning how to use RRTMG, which is the global cl
 the Rapid Radiative Transfer Model (RRTM). While the original model is written in Fortran, `climlab` provides a 
 Python wrapper for RRTMG, which we'll be using in this in-class lab session. 
 
+# About this Repository
+
+There are **three** main files that needed your attention to: 
+- README.md
+- RRTMG_InClass.ipynb
+- RRTMG_Pre-class.ipynb
+
+1. `README.md`: Basically this documentation that you are reading right now. **Please follow the instructions to set up the required environment and fetch the notebooks**, and feel free to reach out if you face any difficulty when running the notebooks!
+2. `RRTMG_InClass.ipynb`: The working notebook that we will be using on November 17's lecuture.
+3. `RRTMG_Pre-class.ipynb`: A quick 5-minute read - the goal is to breifly have an idea of what simulation output from global climate models would look like, and the lines of code that calls the RRTMG model using the Climlab package. 
+
+<ins>Additional References:</ins>
+- RRTMG_InCLass_full.ipynb 
+- inclass_func.py
+
+1. `RRTMG_InClass_Full.ipynb`: This notebook is the answer key to the working notebook: It is almost identical to `RRTMG_InClass.ipynb`, but contains all figures that will be discussed in class.
+2. `inclass_func.py`: This is a python script that contains all functions called from `RRTMG_InClass.ipynb` and `RRTMG_InClass_full.ipynb`. All lines of code called from the in-class working notebook are detailed here, including model calls and figure plotting. 
+
+<br/><br/>
+
 # Prior to In-class Session
 ## A. Installing climlab
 
