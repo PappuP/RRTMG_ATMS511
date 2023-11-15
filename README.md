@@ -6,7 +6,7 @@ Python wrapper for RRTMG, which we'll be using in this in-class lab session.
 
 # About this Repository
 
-There are **three** main files that needed your attention to: 
+There are **three** main files that require your attention: 
 - README.md
 - RRTMG_InClass.ipynb
 - RRTMG_Pre-class.ipynb
@@ -34,19 +34,19 @@ conda create --name rrtmg python=3.10 climlab climlab-rrtmg numpy=1.23 numba mat
 
 This should be fairly straightforward. All dependencies should be installed automatically if they're not already present in your directory. If you want to do line by line there is also instructions for this in the bottom.
 
-2. Then everyone need to activate new environment
+2. Then you can activate your environment
 ```
 conda activate rrtmg
 ```
-3. Everyone need to open jupyter notebook in the new environment
+3. In order for the packages to work, you'll need to open your Jupyter Notebook in the new environment
+
+. If you'd like to set up one in Keeling but haven't before, we suggest using [Max Grover's tutorial](https://github.com/mgrover1/keeling-crash-course).
 
 ## B. Running the code
 You can download all the files or ``git clone`` this repo into your home directory by the following line of code, and it should be ready to run!
 ```
 git clone https://github.com/PappuP/RRTMG_ATMS511.git
 ```
-
-. If you'd like to set up one in Keeling but haven't before, we suggest using [Max Grover's tutorial](https://github.com/mgrover1/keeling-crash-course).
 
 ## Line by line instractions of creating environment and libraries 
 
@@ -71,10 +71,13 @@ conda install pip
 pip install ipykernel # create a new kernel to run the notebook in 
 conda install -c conda-forge climlab matplotlib numba # Download climlab
 conda install climlab-rrtmg --channel conda-forge # Download the RRTMG specific package of climlab
+....
 ```
 
+You'll need to install numpy 1.23, jupyter, and ipykernel as well as having Python 3.10.
+
 ## C. Debugging: Change the kernel in notebook
-If notebook crashes while running,  the steps below are necessary.
+If the notebook crashes while running, the steps below may be necessary.
 
 1. Install ``nb_conda_kernels`` in your ``base`` environment (i.e. after you typed `bash` + `enter` on Keeling). 
 
