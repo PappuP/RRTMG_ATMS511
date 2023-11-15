@@ -32,7 +32,7 @@ We recommend creating a new environment or using an existing non-base environmen
 conda create --name rrtmg python=3.10 climlab climlab-rrtmg numpy=1.23 numba matplotlib jupyter ipykernel --channel conda-forge
 ```
 
-This should be fairly straightforward. All dependencies should be installed automatically if they're not already present in your directory. If you want to do line by line there is also instructions for this in the bottom.
+This should be fairly straightforward. All dependencies should be installed automatically if they're not already present in your directory. If you want to do this installing packages line by line there are also instructions for this down below.
 
 2. Then you can activate your environment
 ```
