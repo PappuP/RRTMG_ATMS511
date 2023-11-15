@@ -48,7 +48,7 @@ You can download all the files or ``git clone`` this repo into your home directo
 git clone https://github.com/PappuP/RRTMG_ATMS511.git
 ```
 
-## Line by line instractions of creating environment and libraries 
+## Line by line instructions of creating environment and libraries 
 
 1. To create a new environment called `rrtmg`:
 ```
@@ -90,7 +90,7 @@ Once this is installed, kernels in all environment that has ipykernel installed 
 2. Open Jupyter Notebooks from your base environment and follow the steps below
 In the top pannel of the notebook find ``Kernel>>change kernel>>select your new env kernel``
 
-<img src="Supplementary/kernal.png" alt="Change the kernel in notebook" title="Change the kernel in notebook">
+<img src="Supplementary/notebook_images/kernal.png" alt="Change the kernel in notebook" title="Change the kernel in notebook">
 
 # Resources
 - [Climlab](https://climlab.readthedocs.io/en/latest/)
