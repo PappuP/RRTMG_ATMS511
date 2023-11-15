@@ -480,7 +480,7 @@ def plot_humidity(model_Q, model_lev,obs_Q,obs_lev):
     ax2.grid()
     #return fig
 
-def plotting_sec1(radmodel_LW, radmodel_SW,datatype,condition,location):
+def plotting_sec1(radmodel_LW, radmodel_SW,condition,datatype):
     fig = plt.figure(figsize=(20,6))
     ax1 = plt.subplot2grid((1,3), (0,0))
     ax2 = plt.subplot2grid((1,3), (0,1))
@@ -498,7 +498,7 @@ def plotting_sec1(radmodel_LW, radmodel_SW,datatype,condition,location):
     ax1.set_ylim(top=90)
     ax1.legend()
     ax1.grid()
-    ax1.set_title(datatype+' '+condition+' Vertical Profile of Net Flux at '+location)
+    ax1.set_title('Verical Profile of Net Flux in '+condition+' with '+datatype+' Humidity')
 
     ax2.plot(radmodel_LW.heating_rate['Tatm'], radmodel_LW.lev, label='LW', c="C0")
     ax2.plot(radmodel_SW.heating_rate['Tatm'], radmodel_SW.lev, label='SW', c="C1")
@@ -513,13 +513,13 @@ def plotting_sec1(radmodel_LW, radmodel_SW,datatype,condition,location):
     ax2.set_ylabel('Pressure [mb]',size=15)
     ax2.legend()
     ax2.grid()
-    ax2.set_title(datatype+' '+condition+' Vertical Profile of Heating Rates at '+location )
+    ax2.set_title('Verical Profile of Heating Rates in '+condition+' with '+datatype+' Humidity')
 
 def cf_plot(cldfrac,lev,datatype):
     plt.figure(figsize=(3,3))
     plt.plot(cldfrac,lev)
     plt.gca().invert_yaxis()
-    plt.title('Vertical Profile of '+datatype+' Cloud Fraction')
+    plt.title('Vertical Profile of '+datatype)
     plt.ylabel('pressure (mb)',fontsize=15), plt.xlabel('cloud fraction (unitless)',fontsize=15),plt.grid(),
     plt.ylim(top=90);
 
