@@ -536,8 +536,8 @@ def plotting_sec3(radmodel_lw, radmodel_sw):
     #ax2.plot(lwd,p_lev,label='↓F_lw',color='C1')
     #ax2.plot(swu,p_lev,label='↑F_sw',color='C0',linestyle='dashed')
     #ax2.plot(lwu,p_lev,label='↑F_lw',color='C1',linestyle='dashed')
-    ax1.plot(swnet,radmodel_sw.lev_bounds,label='Net ↓F_sw', c="C1")
-    ax1.plot(lwnet*-1,radmodel_lw.lev_bounds,label='Net ↑F_lw', c="C0")
+    ax1.plot(swnet,radmodel_sw.lev_bounds,label='SW', c="C1")
+    ax1.plot(lwnet*-1,radmodel_lw.lev_bounds,label='LW', c="C0")
     net_flux=swnet-lwnet
     ax1.plot(net_flux, radmodel_sw.lev_bounds, label='Net',c='C2')
     ax1.invert_yaxis()
