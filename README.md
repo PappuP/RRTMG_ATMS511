@@ -95,3 +95,9 @@ In the top pannel of the notebook find ``Kernel>>change kernel>>select your new 
 # Resources
 - [Climlab](https://climlab.readthedocs.io/en/latest/)
 - [Conda cheat sheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf)
+- [The Climate Laboratory](https://brian-rose.github.io/ClimateLaboratoryBook/home.html)
+- [Atmospheric and Environmental Research RRTMG Webpage](http://rtweb.aer.com/rrtm_frame.html)
+
+
+# Acknowledgements
+Content from this repository are fully based on code and model developed by AER (RRTMG-LW, RRTMG-SW) and Dr Brian Rose (Climlab). The in-class assignemnt ideas are inspired from Dr Rose's The Climate Laboratory textbook. 
